@@ -1,0 +1,24 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+<body style="font-family: sans-serif;">
+<div class="home-container">
+    <div>
+        {% include 'base/topics_component.html' %}
+    </div>
+    <div>
+        <h3>{{room_count}} room{{room_count|pluralize}} available</h3>
+        <a href="{% url 'create-room' %}">Create Room</a>
+        {% include 'base/feed_component.html' %}
+    </div>
+    <div>
+        {% include 'base/activity_component.html' %}
+    </div>
+</div>
+</body>
+{% endblock content %}
